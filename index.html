@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validetion assignment</title>
+</head>
+<style>
+
+    .main-container{
+        display: flex;
+        justify-content: center;
+       
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        border: 2px solid black;
+        align-items: center;
+        height: 34vh;
+        width: 30%;
+        padding: 10px;
+        border-radius: 5px;
+        text-align: center;
+        background: linear-gradient(to bottom left, #ff99ff 0%, #00ffff 100%);
+    }
+
+    .password-cont{
+        margin-top: 7px;
+    }
+    .submit{
+    margin-top: 7px;
+    }
+
+ .name-cont input[type=text] {
+  width: 25vw;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 10px;
+ }
+
+ .btn{
+    padding: 7px;
+    width: 50%;
+    border-radius: 10px;
+    cursor: pointer;
+ }
+.btn:hover{
+    background-color: lightgoldenrodyellow;
+}
+ 
+</style>
+<body>
+    <div class="main-container">
+    <div class="container">
+        <div class="nav">
+        <h2>FORM VALIDETION </h2>
+    </div>
+    
+    <form action="backend.php" name="myForm" method="post" onsubmit="return formvalidetion()">
+
+        <div class="name-cont">
+            <input type="text" name="name" placeholder="Enter your name" class="name"></input>
+        </div>
+
+        
+    
+        <div class="submit">
+            <input type="submit" value="Submit" class="btn">
+        </div>
+
+    </form>
+    </div>
+</div>
+    
+<script type="text/javascript">
+    function formvalidetion(){
+    let name=document.myForm.name.value;
+    
+
+    if(name==null || name==""){
+        alert("Name Cant Be Blank!");
+        return false;
+
+    }else if(name>0){
+        alert("Numbers are not allowed! inside name section!");
+    }
+    else if(name.length<5){
+        alert("Name must be at least 5 character long")
+        return false;
+    }else{
+        confirm("Your name is Submitted Succesfully");
+        return true;
+    }
+}
+
+</script>
+</body>
+</html>
